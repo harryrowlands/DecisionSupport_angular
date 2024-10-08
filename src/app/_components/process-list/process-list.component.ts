@@ -27,11 +27,12 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UnsavedStepAlertDialogComponent } from '../dialog-components/process-dialog/unsaved-step-alert-dialog/unsaved-step-alert-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-process-list',
   standalone: true,
-  imports: [FormsModule, MatIconModule, MatTableModule, MatFormFieldModule, MatInputModule, CommonModule, MatSelectModule, RouterLink],
+  imports: [FormsModule,MatProgressSpinnerModule, MatIconModule, MatTableModule, MatFormFieldModule, MatInputModule, CommonModule, MatSelectModule, RouterLink],
   templateUrl: './process-list.component.html',
   styleUrl: './process-list.component.scss'
 })
@@ -47,7 +48,9 @@ export class ProcessListComponent {
   searchInput: string = "";
   /** Table Columns */
   displayedColumns: string[] = ['entityid', 'label', 'revisionStatus', 'createdTime', 'updatedTime', 'actions'];
-
+  /**Boolean Value for spinner */
+  response: boolean = false;
+  
   constructor(private processService: ProcessService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
@@ -83,9 +86,11 @@ export class ProcessListComponent {
         // Filter only enabled processes
         this.processes = this.processes.filter(process => process.enabled == true);
         this.filterProcessList(this.revisionStatus); 
+        this.response = true;
       },
       (error) =>{
         // Log any errors encountered while fetching processes
+        this.response = true;
          console.error('Error fetching processes');
          this.snackBar.open('Error Fetching Processes - Try Again', 'Ok',{
           duration: 3000

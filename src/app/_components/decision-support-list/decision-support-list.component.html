@@ -12,7 +12,7 @@
     </div>
   </div>
   
-  <div class="wrapper">
+  <div class="wrapper" *ngIf="response">
     <!-- Table of Decision Supports-->
     <mat-table #table [dataSource]="decisionSupports" class="mat-elevation-z0">
   
@@ -73,5 +73,7 @@
   
   </div>
   
-  
+  <div class="div-spinner" *ngIf="!response">
+    <mat-spinner></mat-spinner>
+  </div>
   

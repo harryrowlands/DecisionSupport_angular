@@ -49,6 +49,7 @@
   .content {
     padding: 24px;
     z-index: -1;
+    position: relative;
   }
   
   mat-sidenav-container {
@@ -92,13 +93,22 @@
   }
   
   .btn-primary {
-    background-color: transparent;
-    color: grey !important;
-    width: 5%;
+    background-color: #d6d6d6;
+    color: black !important;
+    margin-right: 10px;
     border-radius: 5px;
-    border-style: solid;
     border: none;
     font-size: 17px;
+    width: 150px;
+  }
+  .btn-secondary{
+    background-color: #403950;
+    color: white !important;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 17px;
+    width: 150px;
   }
   
   .toggle-button {
@@ -112,5 +122,17 @@
     color: white !important;
     transition: 0.7s;
     font-size: 17px;
-  
+
+
   }
+  .button-container {
+    position: absolute;
+    right: 16px;  
+  }
+    
+.div-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}

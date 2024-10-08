@@ -1,6 +1,6 @@
 
 .material-icons{
-    color: #white;
+    color: white;
     cursor:pointer;
   }
   
@@ -147,3 +147,9 @@
     color: #143354;
   }
   
+.div-spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}

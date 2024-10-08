@@ -7,10 +7,11 @@
 */
 
 export class DecisionSupport {
-    constructor( entityId: number, label: string, processId: number) {
+    constructor( entityId: number, label: string, processId: number, isCompleted: boolean) {
         this.entityId = entityId;
         this.label = label;
         this.processId = processId;
+        this.isCompleted = isCompleted;
     }
     
     /**
@@ -27,4 +28,9 @@ export class DecisionSupport {
      * ID of the process that the decision support was created to carry out.
      */
     processId: number;
+
+    /**
+     * Boolean to determine is the decision support completed or not
+     */
+    isCompleted: boolean;
 }
